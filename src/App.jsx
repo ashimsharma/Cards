@@ -77,7 +77,6 @@ function App() {
   return (
     <>
       <header><h1>CARDS</h1></header>
-      <h1>{cards.length}</h1>
       <div className='deck-container'>
         <OverturnedDeck setSelectedCards={setSelectedCards} selectedCards={selectedCards} cards={cards} setCards={setCards} />
       </div>
