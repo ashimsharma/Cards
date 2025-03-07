@@ -1,6 +1,17 @@
 import { useState } from "react"
+import ClubsImage from "../assets/Clubs.png";
+import DiamondsImage from "../assets/Diamonds.png";
+import HeartsImage from "../assets/Hearts.png";
+import SpadesImage from "../assets/Spades.png";
 
 export default function Card({ card, setSelectedCards, setCards, cards, selectedCards, pickedCard, setPickedCard }) {
+    const suitsImages = {
+        Clubs: ClubsImage,
+        Hearts: HeartsImage,
+        Diamonds: DiamondsImage,
+        Spades: SpadesImage
+    }
+
     const pickCard = (e) => {
         if (!pickedCard) {
             setPickedCard(card);
@@ -41,6 +52,16 @@ export default function Card({ card, setSelectedCards, setCards, cards, selected
     
 
     return (
-        <div className={`${card.picked && 'picked-card'} card`} onClick={(e) => pickCard(e)}>{card.suit}: {card.value}</div>
+        <div className={`${card.picked && 'picked-card'} card ${card.suit+'-color'}`} onClick={(e) => pickCard(e)}>
+            <div className="card-left"><p>{card.value}</p></div>
+
+            <div className="suit">
+                <div className={`suit`}>
+                    <img src={suitsImages[card.suit]} alt={`${card.suit} Image`} className="suit-image" />
+                </div>
+            </div>
+            
+            <div className="card-right"><p>{card.value}</p></div>
+        </div>
     )
 }
