@@ -18,6 +18,12 @@ export default function Card({ card, setSelectedCards, setCards, cards, selected
             card.picked = true; 
             return;
         }
+
+        if(card === pickedCard){
+            setPickedCard(null);
+            card.picked = false;
+            return;
+        }
     
         let newCardsArray = [...selectedCards];
     

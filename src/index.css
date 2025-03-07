@@ -29,6 +29,7 @@ body{
   justify-content: center;
   align-items: center;
   color: white;
+  cursor: pointer;
 }
 
 .deck-image{
@@ -124,4 +125,28 @@ body{
 .suit-image{
   width: 50%;
   height: 50%;
+}
+
+.btn{
+  color: white;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.btn:hover{
+  background-color: rgb(109, 22, 22);
+}
+
+.btn-container{
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }

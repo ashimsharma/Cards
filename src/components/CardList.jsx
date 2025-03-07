@@ -1,6 +1,5 @@
 import { useState } from "react";
 import cardTable from "../assets/card-table.jpg";
-import { cards } from "../utils/cards";
 import Card from "./Card";
 
 export default function CardList({ selectedCards, setSelectedCards, cards, setCards }) {
