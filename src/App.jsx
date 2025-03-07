@@ -6,6 +6,7 @@ function App() {
   const [selectedCards, setSelectedCards] = useState([]);
   const [cards, setCards] = useState([...initialCards]);
   const [unchangedCards, setUnchangedCards] = useState([...initialCards]);
+  const [pickedCard, setPickedCard] = useState(null);
 
   const selectRandomCard = (cardsDeck) => {
     const randomIndex = Math.floor(Math.random() * cardsDeck.length);
@@ -42,7 +43,16 @@ function App() {
   }
 
   const toss = () => {
+    if (!pickedCard) {
+      return;
+    }
 
+    let newSelectedCards = selectedCards.filter(card => {
+      return card !== pickedCard;
+    });
+
+    setSelectedCards([...newSelectedCards]);
+    setPickedCard(null);
   }
 
   const wildCard = () => {
@@ -78,10 +88,10 @@ function App() {
         <button className="btn" onClick={reset}>Reset</button>
         <button className="btn" onClick={wildCard}>WildCard</button>
         <button className="btn" onClick={regroup}>Regroup</button>
-        <button className="btn">Toss</button>
+        <button className="btn" onClick={toss}>Toss</button>
 
       </div>
-      <CardList selectedCards={selectedCards} setSelectedCards={setSelectedCards} cards={cards} setCards={setCards} />
+      <CardList selectedCards={selectedCards} setSelectedCards={setSelectedCards} cards={cards} setCards={setCards} pickedCard={pickedCard} setPickedCard={setPickedCard} />
     </>
   )
 }

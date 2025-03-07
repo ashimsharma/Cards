@@ -2,9 +2,7 @@ import { useState } from "react";
 import cardTable from "../assets/card-table.jpg";
 import Card from "./Card";
 
-export default function CardList({ selectedCards, setSelectedCards, cards, setCards }) {
-    const [pickedCard, setPickedCard] = useState(null);
-
+export default function CardList({ selectedCards, setSelectedCards, cards, setCards, pickedCard, setPickedCard }) {
     return (
         <div className="card-list">
             <div className="card-table">
